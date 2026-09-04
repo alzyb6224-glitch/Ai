@@ -1,0 +1,64 @@
+name: Android Build
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '*.bundle.zip'
+      - '.github/workflows/android.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore project
+        shell: bash
+        run: |
+          set -euo pipefail
+          for f in *.bundle.zip; do unzip -q -o "$f"; done
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.44.7'
+          channel: stable
+      - name: Generate Android platform
+        working-directory: app
+        run: flutter create --platforms=android --org com.nexcodeai .
+      - name: Configure OAuth deep link
+        working-directory: app
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('android/app/src/main/AndroidManifest.xml')
+          s = p.read_text()
+          marker = '</activity>'
+          block = '''<intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="nexcode" android:host="oauth" android:path="/callback" />
+              </intent-filter>
+              '''
+          if 'android:scheme="nexcode"' not in s:
+              p.write_text(s.replace(marker, block + marker, 1))
+          PY
+      - name: Flutter dependencies
+        working-directory: app
+        run: flutter pub get
+      - name: Build APK
+        working-directory: app
+        run: flutter build apk --release --dart-define=NEXCODE_API_URL=${{ secrets.NEXCODE_API_URL }}
+      - name: Build AAB
+        working-directory: app
+        run: flutter build appbundle --release --dart-define=NEXCODE_API_URL=${{ secrets.NEXCODE_API_URL }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nexcode-android-builds
+          path: |
+            app/build/app/outputs/flutter-apk/app-release.apk
+            app/build/app/outputs/bundle/release/app-release.aab
+            
