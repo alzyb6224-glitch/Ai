@@ -1,0 +1,57 @@
+[
+  {
+    "file": "ANDROID_BUILD_WORKFLOW.yml",
+    "size": 2195,
+    "sha256": "8f04046ed08c83b789811f526df05e512dd7614334d9ab17f55a4cae41d4e850"
+  },
+  {
+    "file": "LICENSE",
+    "size": 1067,
+    "sha256": "133fce6302a7fb96aac03037eb91a1940d5962992eefa4a515f01059cf168563"
+  },
+  {
+    "file": "MANIFEST.txt",
+    "size": 666,
+    "sha256": "86d59458ffaf2032a829689940e15c1f61a8ac8a0d060efece20720f539a3ea8"
+  },
+  {
+    "file": "README.md",
+    "size": 3659,
+    "sha256": "78cfa822cdd8a83c6b6c0ca5ac4051a6b6c50b81956984c4d128e53dab15b711"
+  },
+  {
+    "file": "README_FIRST.md",
+    "size": 1212,
+    "sha256": "7bf3df624b24a21a5b1c1d2af515c407cf0e7563e30fb6bf6b4a655feda208fe"
+  },
+  {
+    "file": "add_v9.py",
+    "size": 20449,
+    "sha256": "b08ac584fefd37451066abf36cfbb07516639aa9bd0abc147aa4240d2c06bff0"
+  },
+  {
+    "file": "nexcode_backend.bundle.zip",
+    "size": 366972,
+    "sha256": "ab97032f5f2e712cea910f93ac8c8fb6d755990c31f04bfd1f274d24079ac555"
+  },
+  {
+    "file": "nexcode_flutter.bundle.zip",
+    "size": 18177,
+    "sha256": "1058e01e1642deed4e4480bcc2392e82e362b0144f5ef29fa46e25e5b2687a12"
+  },
+  {
+    "file": "nexcode_project_docs.bundle.zip",
+    "size": 17513,
+    "sha256": "b83ffd41587e3664190e50193c5e74c016825ca25f50d0192dc9af37dc1a0b8f"
+  },
+  {
+    "file": "nexcode_project_evaluation.bundle.zip",
+    "size": 8252,
+    "sha256": "64a61fce67007e45988f6550c2a5873805cf8cff16c88d291e2359cf583d1c20"
+  },
+  {
+    "file": "nexcode_project_store.bundle.zip",
+    "size": 2156,
+    "sha256": "f9741f3444b031149272f88da5ab9149180418435e0c9cb0ff03e59999cf8821"
+  }
+]

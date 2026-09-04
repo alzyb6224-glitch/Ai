@@ -1,0 +1,25 @@
+NexCode AI V11
+
+Backend:
+- FastAPI auth + social OAuth
+- Central Agent Core V11
+- Agent team orchestration
+- Context selection + code intelligence
+- End-to-end implementation/review/test/repair
+- Sandbox/terminal/deployment policy
+- Model routing, MCP, browser/computer use
+- Memory/learning, collaboration, voice, artifacts
+- Observability and long-running tasks
+- V11 contract benchmark/evaluation
+
+Flutter:
+- Chat/project client
+- Login with email + OAuth providers
+- V11 Agent Core dashboard
+- Project workspace tools
+- Android CI build pipeline with OAuth deep-link patch
+
+Docs:
+- docs/V11_STATUS.md
+- docs/V11_CAPABILITY_MATRIX.md
+- docs/ANDROID_FROM_PHONE.md
